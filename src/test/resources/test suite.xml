@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tracking" parallel="classes" thread-count="4">
+    <listeners>
+        <listener class-name="com.github.stealthydron.example.testit.TestFilterListener"/>
+    </listeners>
+    <test name="test">
+        <packages>
+            <package name="com.github.stealthydrom.examples.test.*"/>
+        </packages>
+    </test>
+</suite>
