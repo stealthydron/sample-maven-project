@@ -4,7 +4,6 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({"classpath:testit.properties",
-        "system:properties",
         "system:env"})
 public interface TestItSettings extends Config {
 
@@ -16,6 +15,7 @@ public interface TestItSettings extends Config {
 
     String testRunId();
 
+    @Key("testPlanId")
     String testPlanId();
 
 }
