@@ -13,11 +13,18 @@ import org.testng.ITestContext;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class TestFilterListener implements IMethodInterceptor {
 
     @Override
     public List<IMethodInstance> intercept(List<IMethodInstance> list, ITestContext iTestContext) {
+        Map<String, String> getenv = System.getenv();
+        for (Map.Entry<String, String> entry : getenv.entrySet()) {
+            System.out.println(entry.getKey() + "/" + entry.getValue());
+        }
+
+
         final List<IMethodInstance> result = new ArrayList<IMethodInstance>();
         final List<String> testIdList = getTesCases();
 
