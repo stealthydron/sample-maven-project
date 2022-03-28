@@ -13,6 +13,7 @@ public interface TestItSettings extends Config {
 
     String token();
 
+    @Key("testRunId")
     String testRunId();
 
     @Key("testPlanId")

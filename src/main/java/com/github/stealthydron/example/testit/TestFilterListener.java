@@ -24,7 +24,6 @@ public class TestFilterListener implements IMethodInterceptor {
             System.out.println(entry.getKey() + "/" + entry.getValue());
         }
 
-
         final List<IMethodInstance> result = new ArrayList<IMethodInstance>();
         final List<String> testIdList = getTesCases();
 
