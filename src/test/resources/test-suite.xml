@@ -3,6 +3,7 @@
 <suite name="Tracking" parallel="classes" thread-count="4">
     <listeners>
         <listener class-name="com.github.stealthydron.example.testit.TestFilterListener"/>
+        <listener class-name="com.github.stealthydron.example.testit.TestItListener"></listener>
     </listeners>
     <test name="test">
         <packages>

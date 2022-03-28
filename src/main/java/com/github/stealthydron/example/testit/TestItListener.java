@@ -12,6 +12,11 @@ public class TestItListener extends TestListenerAdapter {
     }
 
     @Override
+    public void onFinish(ITestContext context){
+
+    }
+
+    @Override
     public void onTestSuccess(ITestResult result) {
 
     }
@@ -28,4 +33,5 @@ public class TestItListener extends TestListenerAdapter {
     public void onTestSkipped(ITestResult result) {
 
     }
+
 }
