@@ -31,8 +31,7 @@ public class TestItListener extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
         //ToDo взять результаты из allure-results и прокинуть в testIt
-        //testItClient.completeTestRun(testItSettings.testRunId());
-        System.out.println("____onFinish______");
+        testItClient.completeTestRun(testItSettings.testRunId());
     }
 
     @Override
