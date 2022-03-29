@@ -30,4 +30,8 @@ public interface TestItClient {
     @Headers("Content-Type: multipart/form-data")
     @RequestLine("POST /api/v2/attachments?apiVersion=2")
     Attachment createAttachment(@Param(value = "file") File attachment);
+
+    @Headers("Content-Type: application/json")
+    @RequestLine("POST /api/v2/testRuns/{testRunId}/testResults")
+    void setAutoTestsResults(@Param("testRunId") String testRunId, List<AutotestResults> autoTestsResults);
 }

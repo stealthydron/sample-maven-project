@@ -2,6 +2,7 @@ package com.github.stealthydron.example.testit;
 
 import com.github.stealthydron.example.testit.client.TestItClient;
 import com.github.stealthydron.example.testit.client.TestItClientBuilder;
+import com.github.stealthydron.example.testit.client.dto.AutotestResults;
 import com.github.stealthydron.example.testit.client.dto.WorkItem;
 import io.qameta.allure.TmsLink;
 import org.aeonbits.owner.ConfigFactory;
@@ -9,6 +10,9 @@ import org.testng.IMethodInstance;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 public class TestItListener extends TestListenerAdapter {
 
@@ -32,13 +36,24 @@ public class TestItListener extends TestListenerAdapter {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        //ToDo set auto-test results for test plan
+        String testId = getTestId(result);
+        String autotestExternalId = testItClient.getWorkItem(testId).getAutoTests().get(0).getExternalId();
+        AutotestResults results = new AutotestResults();
+        results.setAutoTestExternalId(autotestExternalId);
+        results.setOutcome("Passed");
+        results.setConfigurationId(testItSettings.configurationId());
+        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println(result.getThrowable().getMessage());
-        //ToDo set auto-test results for test plan
+        String testId = getTestId(result);
+        String autotestExternalId = testItClient.getWorkItem(testId).getAutoTests().get(0).getExternalId();
+        AutotestResults results = new AutotestResults();
+        results.setAutoTestExternalId(autotestExternalId);
+        results.setOutcome("Failed");
+        results.setConfigurationId(testItSettings.configurationId());
+        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));
     }
 
     @Override
