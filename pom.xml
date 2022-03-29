@@ -15,8 +15,7 @@
         <owner.version>1.0.12</owner.version>
         <feign.version>11.8</feign.version>
         <lombok.version>1.18.22</lombok.version>
-        <suiteFile/>
-        <testPlanId/>
+        <feign.form.version>3.8.0</feign.form.version>
     </properties>
 
     <build>
@@ -118,6 +117,11 @@
                     <artifactId>feign-core</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.github.openfeign.form</groupId>
+            <artifactId>feign-form</artifactId>
+            <version>${feign.form.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
