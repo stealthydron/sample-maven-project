@@ -2,6 +2,7 @@ package com.github.stealthydron.example.testit.client;
 
 import feign.Feign;
 import feign.Retryer;
+import feign.form.FormEncoder;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
@@ -30,7 +31,7 @@ public class TestItClientBuilder {
                 .addInterceptor(new TestItRequestsInterceptor(privateToken)).build());
         return Feign.builder()
                 .client(client)
-                .encoder(new GsonEncoder())
+                .encoder(new FormEncoder(new GsonEncoder()))
                 .decoder(new GsonDecoder())
                 .retryer(Retryer.NEVER_RETRY)
                 .target(TestItClient.class, endpoint);

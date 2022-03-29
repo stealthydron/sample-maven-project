@@ -57,6 +57,7 @@ public class ExportTests {
 
     @Step("Test step {text}")
     public void testStep2(String text) {
+        Allure.addAttachment("Attachment","text/html","test test test");
         assertEquals(1, 2);
     }
 }

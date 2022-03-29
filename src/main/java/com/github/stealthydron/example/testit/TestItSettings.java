@@ -19,4 +19,7 @@ public interface TestItSettings extends Config {
     @Key("testPlanId")
     String testPlanId();
 
+    @Key("configurationId")
+    String configurationId();
+
 }
