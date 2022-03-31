@@ -2,6 +2,7 @@ package com.github.stealthydrom.examples.test;
 
 import com.github.stealthydrom.examples.samples.TestSteps;
 import com.github.stealthydron.example.steps.MainSteps;
+import com.github.stealthydron.example.testit.annotation.AutotestId;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
@@ -47,6 +48,33 @@ public class ExportTests {
         testStep2(text);
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
+    }
+
+    @Epic("Test epic")
+    @Feature("Test feature 4")
+    @Story("Test story 4")
+    @Test(description = "Test Name 4")
+    @TmsLink("218")
+    @AutotestId("217")
+    public void testMethodExample4() {
+        String text = getSomething();
+        testStep2(text);
+        steps.testStep1().testStep2();
+        mainSteps.mainStep1();
+    }
+
+    @Epic("Test epic")
+    @Feature("Test feature 5")
+    @Story("Test story 5")
+    @Test(description = "Test Name 5")
+    @TmsLink("230")
+    @AutotestId("229")
+    public void testMethodExample5() {
+        String text = getSomething();
+        testStep2(text);
+        steps.testStep1().testStep2();
+        mainSteps.mainStep1();
+        mainSteps.mainStep2();
     }
 
 

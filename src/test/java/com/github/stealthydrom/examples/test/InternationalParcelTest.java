@@ -1,6 +1,7 @@
 package com.github.stealthydrom.examples.test;
 
 import com.github.stealthydrom.examples.app.Application;
+import com.github.stealthydron.example.testit.annotation.AutotestId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -15,7 +16,8 @@ public class InternationalParcelTest {
     @Feature("Оформление международных посылок")
     @Story("Посылка в геоманию")
     @Test(description = "Для посылки москва - германия формируется бланк ...")
-    @TmsLink("189")
+    @TmsLink("232")
+    @AutotestId("231")
     public void createParcelTest() {
         app.openParcelsPage()
                 .fillSenderAddress("Москва Мофсфильмовская")
