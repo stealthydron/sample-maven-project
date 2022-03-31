@@ -63,6 +63,9 @@ public class TestItListener extends TestListenerAdapter {
                         logger.error("Не указана аннотация @TmsLink для " + result.getFullName());
                     } else {
                         AutotestResults autotestResults = AllureResultsMapper.mapToTestItResults(result);
+                        autotestResults.setConfigurationId(testItSettings.configurationId());
+                        String externalId = testItClient.getWorkItem(testCaseId).getAutoTests().get(0).getExternalId();
+                        autotestResults.setAutoTestExternalId(externalId);
                         autotestResultsList.add(autotestResults);
                     }
                 }
