@@ -27,7 +27,7 @@ import java.util.stream.Stream;
 
 public class TestItListener extends TestListenerAdapter {
 
-    private static final Logger logger = LogManager.getLogger(Sandbox.class);
+    private static final Logger logger = LogManager.getLogger(TestItListener.class);
 
     private final TestItSettings testItSettings = ConfigFactory.create(TestItSettings.class);
 
