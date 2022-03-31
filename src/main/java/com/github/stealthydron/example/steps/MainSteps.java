@@ -2,6 +2,8 @@ package com.github.stealthydron.example.steps;
 
 import io.qameta.allure.Step;
 
+import static org.testng.Assert.assertEquals;
+
 public class MainSteps {
 
     private final SubSteps subSteps;
@@ -20,5 +22,10 @@ public class MainSteps {
         System.out.println("Main Step 2 with sub steps");
         subSteps.subStep1();
         subSteps.subStep2();
+    }
+
+    @Step("Main Step 3 assert")
+    public void assertThatSomething() {
+        assertEquals(1, 2);
     }
 }

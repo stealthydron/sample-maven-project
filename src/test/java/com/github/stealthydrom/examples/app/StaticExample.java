@@ -8,4 +8,9 @@ public class StaticExample {
     public static String getSomething() {
         return "something";
     }
+
+    @Step("do something with param {param}")
+    public static void doSomething(String param){
+        System.out.println("do something with param:"+param);
+    }
 }
