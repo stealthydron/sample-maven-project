@@ -31,7 +31,8 @@ public class TestWithBeforeAndAfter {
     @Feature("TestWithBeforeAndAfter feature")
     @Story("TestWithBeforeAndAfter story")
     @Test(description = "TestWithBeforeAndAfter Name")
-    @TmsLink("12312")
+    @TmsLink("236")
+    @AutotestId("235")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);
