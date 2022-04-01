@@ -32,7 +32,6 @@ public class TestWithBeforeAndAfter {
     @Story("TestWithBeforeAndAfter story")
     @Test(description = "TestWithBeforeAndAfter Name")
     @TmsLink("236")
-    @AutotestId("235")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);
