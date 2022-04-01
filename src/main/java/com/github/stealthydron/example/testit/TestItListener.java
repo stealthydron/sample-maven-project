@@ -79,24 +79,24 @@ public class TestItListener extends TestListenerAdapter {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        String testId = getTestId(result);
+/*        String testId = getTestId(result);
         String autotestExternalId = testItClient.getWorkItem(testId).getAutoTests().get(0).getExternalId();
         AutotestResults results = new AutotestResults();
         results.setAutoTestExternalId(autotestExternalId);
         results.setOutcome("Passed");
         results.setConfigurationId(testItSettings.configurationId());
-        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));
+        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));*/
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        String testId = getTestId(result);
+/*        String testId = getTestId(result);
         String autotestExternalId = testItClient.getWorkItem(testId).getAutoTests().get(0).getExternalId();
         AutotestResults results = new AutotestResults();
         results.setAutoTestExternalId(autotestExternalId);
         results.setOutcome("Failed");
         results.setConfigurationId(testItSettings.configurationId());
-        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));
+        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));*/
     }
 
     @Override
