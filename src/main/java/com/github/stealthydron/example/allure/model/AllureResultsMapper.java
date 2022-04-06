@@ -46,8 +46,7 @@ public class AllureResultsMapper {
         }
 
         List<AutotestResultsStep> autotestResultsSteps = new ArrayList<>();
-        List<AllureResultsStep> flattenAllureSteps = new ArrayList<>();
-        flattenSteps(allureResultsContainer.getSteps(), flattenAllureSteps);
+        List<AllureResultsStep> flattenAllureSteps = flattenSteps(allureResultsContainer.getSteps());
 
         for (AllureResultsStep flattenAllureStep : flattenAllureSteps) {
             AutotestResultsStep autotestResultsStep = new AutotestResultsStep();
@@ -82,14 +81,16 @@ public class AllureResultsMapper {
         return dateFormat.format(timestamp);
     }
 
-    private static void flattenSteps(final List<AllureResultsStep> steps, final List<AllureResultsStep> resultsSteps) {
+    private static List<AllureResultsStep> flattenSteps(final List<AllureResultsStep> steps) {
+        List<AllureResultsStep> flattenSteps = new ArrayList<>();
         for (AllureResultsStep step : steps) {
             if (step.getSteps().isEmpty()) {
-                resultsSteps.add(step);
+                flattenSteps.add(step);
             } else {
-                resultsSteps.add(step);
-                flattenSteps(step.getSteps(), resultsSteps);
+                flattenSteps.add(step);
+                flattenSteps.addAll(flattenSteps(step.getSteps()));
             }
         }
+        return flattenSteps;
     }
 }
