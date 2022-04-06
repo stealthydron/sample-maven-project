@@ -71,7 +71,6 @@ public class TestItListener extends TestListenerAdapter {
             }
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
         }
-        testItClient.completeTestRun(testItSettings.testRunId());
     }
 
 
