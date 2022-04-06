@@ -4,7 +4,6 @@ import com.github.stealthydron.example.testit.TestItSettings;
 import com.github.stealthydron.example.testit.client.TestItClient;
 import com.github.stealthydron.example.testit.client.TestItClientBuilder;
 import com.github.stealthydron.example.testit.client.dto.Attachment;
-import com.github.stealthydron.example.testit.client.dto.Autotest;
 import com.github.stealthydron.example.testit.client.dto.AutotestResults;
 import com.github.stealthydron.example.testit.client.dto.AutotestResultsStep;
 import org.aeonbits.owner.ConfigFactory;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 
 public class AllureResultsMapper {
 
-    private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
     private static final String ALLURE_RESULTS_DIRECTORY = "target/allure-results/%s";
 
@@ -54,7 +53,9 @@ public class AllureResultsMapper {
             autotestResultsStep.setOutcome(StringUtils.capitalize(flattenAllureStep.getStatus()));
 
             if (!flattenAllureStep.getParameters().isEmpty()) {
-                Map<String, String> parametersMap = flattenAllureStep.getParameters().stream().collect(Collectors.toMap(Parameter::getName, Parameter::getValue));
+                Map<String, String> parametersMap = flattenAllureStep.getParameters()
+                        .stream()
+                        .collect(Collectors.toMap(Parameter::getName, Parameter::getValue));
                 autotestResultsStep.setParameters(parametersMap);
             }
 
@@ -78,7 +79,7 @@ public class AllureResultsMapper {
 
 
     private static String convertTimestampToDate(Long timestamp) {
-        return dateFormat.format(timestamp);
+        return DATE_FORMAT.format(timestamp);
     }
 
     private static List<AllureResultsStep> flattenSteps(final List<AllureResultsStep> steps) {
