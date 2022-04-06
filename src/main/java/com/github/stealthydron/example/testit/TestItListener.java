@@ -20,7 +20,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -70,51 +69,11 @@ public class TestItListener extends TestListenerAdapter {
                     }
                 }
             }
-            System.out.println("+autotestResultsList.size():" + autotestResultsList.size());
-            System.out.println(autotestResultsList);
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
         }
-        //testItClient.completeTestRun(testItSettings.testRunId());
+        testItClient.completeTestRun(testItSettings.testRunId());
     }
 
-    @Override
-    public void onTestSuccess(ITestResult result) {
-/*        String testId = getTestId(result);
-        String autotestExternalId = testItClient.getWorkItem(testId).getAutoTests().get(0).getExternalId();
-        AutotestResults results = new AutotestResults();
-        results.setAutoTestExternalId(autotestExternalId);
-        results.setOutcome("Passed");
-        results.setConfigurationId(testItSettings.configurationId());
-        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));*/
-    }
-
-    @Override
-    public void onTestFailure(ITestResult result) {
-/*        String testId = getTestId(result);
-        String autotestExternalId = testItClient.getWorkItem(testId).getAutoTests().get(0).getExternalId();
-        AutotestResults results = new AutotestResults();
-        results.setAutoTestExternalId(autotestExternalId);
-        results.setOutcome("Failed");
-        results.setConfigurationId(testItSettings.configurationId());
-        testItClient.setAutoTestsResults(testItSettings.testRunId(), Collections.singletonList(results));*/
-    }
-
-    @Override
-    public void onTestSkipped(ITestResult result) {
-        //ToDo set auto-test results for test plan
-    }
-
-    private WorkItem getWorkItemById(String testCaseId) {
-        return testItClient.getWorkItem(testCaseId);
-    }
-
-    private String getTestId(ITestResult result) {
-        return result.getMethod()
-                .getConstructorOrMethod()
-                .getMethod()
-                .getAnnotation(TmsLink.class)
-                .value();
-    }
 
     private String getTestId(AllureResultsContainer resultsContainer) {
         Link tms = resultsContainer.getLinks()

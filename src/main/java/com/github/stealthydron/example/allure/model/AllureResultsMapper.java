@@ -83,7 +83,7 @@ public class AllureResultsMapper {
     }
 
     private static List<AllureResultsStep> flattenSteps(final List<AllureResultsStep> steps) {
-        List<AllureResultsStep> flattenSteps = new ArrayList<>();
+        final List<AllureResultsStep> flattenSteps = new ArrayList<>();
         for (AllureResultsStep step : steps) {
             if (step.getSteps().isEmpty()) {
                 flattenSteps.add(step);
