@@ -12,9 +12,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class AllureResultsMapper {
@@ -51,6 +53,11 @@ public class AllureResultsMapper {
             AutotestResultsStep autotestResultsStep = new AutotestResultsStep();
             autotestResultsStep.setTitle(flattenAllureStep.getName());
             autotestResultsStep.setOutcome(StringUtils.capitalize(flattenAllureStep.getStatus()));
+            autotestResultsStep.setStartedOn(convertTimestampToDate(flattenAllureStep.getStart()));
+            autotestResultsStep.setCompletedOn(convertTimestampToDate(flattenAllureStep.getStop()));
+
+            long duration = TimeUnit.MILLISECONDS.convert(flattenAllureStep.getStop() - flattenAllureStep.getStart(), TimeUnit.MILLISECONDS);
+            autotestResultsStep.setDuration(duration);
 
             if (!flattenAllureStep.getParameters().isEmpty()) {
                 Map<String, String> parametersMap = flattenAllureStep.getParameters()

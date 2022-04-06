@@ -13,7 +13,7 @@ public class AutotestResultsStep {
     private String description;
     private String startedOn;
     private String completedOn;
-    private Integer duration;
+    private Long duration;
     private String outcome;
     private List<Attachment> attachments;
     private Map<String, String> parameters;
