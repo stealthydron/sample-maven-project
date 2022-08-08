@@ -66,7 +66,6 @@ public class TestItListener extends TestListenerAdapter {
                     }
                 }
             }
-            System.out.println(autotestResultsList);
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
         }
     }
