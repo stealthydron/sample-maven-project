@@ -70,6 +70,7 @@ public class TestItListener extends TestListenerAdapter {
                     }
                 }
             }
+            System.out.println(new Gson().toJson(autotestResultsList));
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
         }
     }
