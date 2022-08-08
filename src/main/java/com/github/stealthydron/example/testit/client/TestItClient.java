@@ -34,4 +34,8 @@ public interface TestItClient {
     @Headers("Content-Type: application/json")
     @RequestLine("POST /api/v2/testRuns/{testRunId}/testResults")
     void setAutoTestsResults(@Param("testRunId") String testRunId, List<AutotestResults> autoTestsResults);
+
+    @Headers("Content-Type: application/json")
+    @RequestLine("GET /api/v2/testRuns/{testRunId}")
+    List<AutotestResults> getTestRun(@Param(value = "testRunId") String testRunId);
 }
