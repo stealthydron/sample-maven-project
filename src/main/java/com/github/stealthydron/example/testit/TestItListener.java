@@ -37,6 +37,7 @@ public class TestItListener extends TestListenerAdapter {
 
         System.out.println("testRunId=" + testItSettings.testRunId());
         System.out.println("testPlanId=" + testItSettings.testPlanId());
+        System.out.println("configurationId=" + testItSettings.configurationId());
 
         testItClient.startTestPlan(testItSettings.testPlanId());
     }
