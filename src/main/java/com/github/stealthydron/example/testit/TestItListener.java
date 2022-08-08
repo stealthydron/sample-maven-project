@@ -34,6 +34,10 @@ public class TestItListener extends TestListenerAdapter {
 
     @Override
     public void onStart(ITestContext context) {
+
+        System.out.println("testRunId=" + testItSettings.testRunId());
+        System.out.println("testPlanId=" + testItSettings.testPlanId());
+
         testItClient.startTestPlan(testItSettings.testPlanId());
     }
 

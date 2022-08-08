@@ -38,8 +38,7 @@ public class TestFilterListener implements IMethodInterceptor {
                 .endpoint(testItSettings.endpoint())
                 .token(testItSettings.token())
                 .build();
-        System.out.println("testRunId=" + testItSettings.testRunId());
-        System.out.println("testPlanId=" + testItSettings.testPlanId());
+
 
         final List<TestSuite> testSuites = testItClient.getTestSuitesFromTestPlan(testItSettings.testPlanId());
 
