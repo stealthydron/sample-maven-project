@@ -37,7 +37,7 @@ public class TestItListener extends TestListenerAdapter {
 
         System.out.println("testRunId=" + testItSettings.testRunId());
         System.out.println("testPlanId=" + testItSettings.testPlanId());
-        if (!testItSettings.testPlanId().isEmpty()) {
+        if (testItSettings.testPlanId() != null) {
             testItClient.startTestPlan(testItSettings.testPlanId());
         }
     }
@@ -75,7 +75,7 @@ public class TestItListener extends TestListenerAdapter {
             }
             System.out.println("autotestResultsList: " + autotestResultsList);
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
-            if (!testItSettings.testPlanId().isEmpty()) {
+            if (testItSettings.testPlanId() != null) {
                 testItClient.completeTestPlan(testItSettings.testPlanId());
             }
         }

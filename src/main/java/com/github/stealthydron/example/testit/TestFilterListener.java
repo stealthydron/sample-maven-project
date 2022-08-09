@@ -26,7 +26,7 @@ public class TestFilterListener implements IMethodInterceptor {
 
             if (testIdList.contains(testId)) {
                 System.out.println("testId: " + testId);
-                System.out.println("iMethodInstance: "+iMethodInstance.getMethod().getMethodName());
+                System.out.println("iMethodInstance: " + iMethodInstance.getMethod().getMethodName());
                 result.add(iMethodInstance);
             }
         }
@@ -50,10 +50,9 @@ public class TestFilterListener implements IMethodInterceptor {
     }
 
     private String getTestId(IMethodInstance instance) {
-        return instance.getMethod()
-                .getConstructorOrMethod()
-                .getMethod()
-                .getAnnotation(AutotestId.class)
-                .value();
+        AutotestId autotestId = instance.getMethod().getConstructorOrMethod().getMethod().getAnnotation(AutotestId.class);
+        if (autotestId != null) {
+            return autotestId.value();
+        } else return "";
     }
 }
