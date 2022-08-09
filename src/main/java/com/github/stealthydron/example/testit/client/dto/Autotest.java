@@ -9,6 +9,7 @@ public class Autotest {
 
     private String id;
     private String externalId;
+    private String globalId;
     private String projectId;
     private String name;
     private String namespace;

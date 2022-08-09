@@ -40,7 +40,7 @@ public class TestFilterListener implements IMethodInterceptor {
 
         List<TestResult> results = testItClient.getTestRun(testItSettings.testRunId()).getTestResults();
         for (TestResult result : results) {
-            testIds.add(result.getAutoTest().getExternalId());
+            testIds.add(result.getAutoTest().getGlobalId());
         }
         System.out.println("testIds: " + testIds);
         return testIds;
