@@ -44,7 +44,8 @@ public class TestItListener extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
         final String allureResultsDirectory = "target/allure-results";
-        System.out.println(new Gson().toJson(testItClient.getTestRun(testItSettings.testRunId()),AutotestResults.class));
+        String configurationId = testItClient.getTestRun(testItSettings.testRunId()).get(0).getConfigurationId();
+        System.out.println(configurationId);
         File[] files = new File(allureResultsDirectory).listFiles();
         if (files == null) {
             logger.error("Не удалось получить файлы из директории " + allureResultsDirectory);
@@ -64,7 +65,7 @@ public class TestItListener extends TestListenerAdapter {
                         logger.error("Не указана аннотация @TmsLink для " + result.getFullName());
                     } else {
                         AutotestResults autotestResults = AllureResultsMapper.mapToTestItResults(result);
-                        autotestResults.setConfigurationId(testItSettings.configurationId());
+                        autotestResults.setConfigurationId(configurationId);
                         String externalId = testItClient.getWorkItem(testCaseId).getAutoTests().get(0).getExternalId();
                         autotestResults.setAutoTestExternalId(externalId);
                         autotestResultsList.add(autotestResults);
