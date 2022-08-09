@@ -28,6 +28,7 @@ public class TestFilterListener implements IMethodInterceptor {
                 result.add(iMethodInstance);
             }
         }
+        System.out.println("result.size():"+result.size());
         return result;
     }
 
