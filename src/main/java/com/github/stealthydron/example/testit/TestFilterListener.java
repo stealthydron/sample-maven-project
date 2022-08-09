@@ -19,9 +19,11 @@ public class TestFilterListener implements IMethodInterceptor {
     public List<IMethodInstance> intercept(List<IMethodInstance> list, ITestContext iTestContext) {
         final List<IMethodInstance> result = new ArrayList<>();
         final List<String> testIdList = getAutotestIdsFromTestRun();
+        System.out.println("testIdList: " + testIdList);
 
         for (IMethodInstance iMethodInstance : list) {
             String testId = getTestId(iMethodInstance);
+            System.out.println("testId: " + testId);
             if (testIdList.contains(testId)) {
                 result.add(iMethodInstance);
             }

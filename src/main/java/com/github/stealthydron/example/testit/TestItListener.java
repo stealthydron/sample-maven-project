@@ -37,7 +37,7 @@ public class TestItListener extends TestListenerAdapter {
 
         System.out.println("testRunId=" + testItSettings.testRunId());
         System.out.println("testPlanId=" + testItSettings.testPlanId());
-        if(!testItSettings.testPlanId().isEmpty()){
+        if (!testItSettings.testPlanId().isEmpty()) {
             testItClient.startTestPlan(testItSettings.testPlanId());
         }
     }
@@ -46,7 +46,7 @@ public class TestItListener extends TestListenerAdapter {
     public void onFinish(ITestContext context) {
         final String allureResultsDirectory = "target/allure-results";
         String configurationId = testItClient.getTestRun(testItSettings.testRunId()).getTestResults().get(0).getConfigurationId();
-        System.out.println(configurationId);
+        System.out.println("allure.results.directory: " + System.getProperty("allure.results.directory"));
 
         File[] files = new File(allureResultsDirectory).listFiles();
         if (files == null) {
@@ -60,7 +60,7 @@ public class TestItListener extends TestListenerAdapter {
                     logger.error("Не удалось получить результаты для " + testResult);
                 } else {
                     final String testCaseId = getTestId(result);
-                    System.out.println("testCaseId: "+ testCaseId);
+                    System.out.println("testCaseId: " + testCaseId);
 
                     if (testCaseId.isEmpty()) {
                         logger.error("Не указана аннотация @TmsLink для " + result.getFullName());
@@ -73,9 +73,9 @@ public class TestItListener extends TestListenerAdapter {
                     }
                 }
             }
-            System.out.println("autotestResultsList: "+autotestResultsList);
+            System.out.println("autotestResultsList: " + autotestResultsList);
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
-            if(!testItSettings.testPlanId().isEmpty()){
+            if (!testItSettings.testPlanId().isEmpty()) {
                 testItClient.completeTestPlan(testItSettings.testPlanId());
             }
         }

@@ -47,7 +47,6 @@
                         <suiteXmlFile>${suiteFile}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <testPlanId>${testPlanId}</testPlanId>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                     <argLine>
