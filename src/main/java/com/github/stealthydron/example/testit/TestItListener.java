@@ -37,8 +37,9 @@ public class TestItListener extends TestListenerAdapter {
 
         System.out.println("testRunId=" + testItSettings.testRunId());
         System.out.println("testPlanId=" + testItSettings.testPlanId());
-
-        testItClient.startTestPlan(testItSettings.testPlanId());
+        if(!testItSettings.testPlanId().isEmpty()){
+            testItClient.startTestPlan(testItSettings.testPlanId());
+        }
     }
 
     @Override
@@ -73,11 +74,12 @@ public class TestItListener extends TestListenerAdapter {
                     }
                 }
             }
-            System.out.println(new Gson().toJson(autotestResultsList));
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
+            if(!testItSettings.testPlanId().isEmpty()){
+                testItClient.completeTestPlan(testItSettings.testPlanId());
+            }
         }
     }
-
 
     private String getTestId(AllureResultsContainer resultsContainer) {
         Link tms = resultsContainer.getLinks()
@@ -100,7 +102,7 @@ public class TestItListener extends TestListenerAdapter {
         return null;
     }
 
-    private static List<String> getAllureResults(File[] files) {
+    private List<String> getAllureResults(File[] files) {
         return Stream.of(files)
                 .filter(file -> !file.isDirectory())
                 .map(File::getName)

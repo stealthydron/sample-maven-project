@@ -25,7 +25,7 @@ public interface TestItClient {
     void startTestPlan(@Param("testPlanId") String testPlanId);
 
     @RequestLine("POST /api/v2/testRuns/{testRunId}/complete")
-    void completeTestRun(@Param("testRunId") String testPlanId);
+    void completeTestPlan(@Param("testRunId") String testPlanId);
 
     @Headers("Content-Type: multipart/form-data")
     @RequestLine("POST /api/v2/attachments?apiVersion=2")

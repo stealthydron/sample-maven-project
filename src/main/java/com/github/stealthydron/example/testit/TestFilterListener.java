@@ -18,7 +18,7 @@ public class TestFilterListener implements IMethodInterceptor {
     @Override
     public List<IMethodInstance> intercept(List<IMethodInstance> list, ITestContext iTestContext) {
         final List<IMethodInstance> result = new ArrayList<>();
-        final List<String> testIdList = getTesCases();
+        final List<String> testIdList = getAutotestIdsFromTestRun();
 
         for (IMethodInstance iMethodInstance : list) {
             String testId = getTestId(iMethodInstance);
@@ -29,7 +29,7 @@ public class TestFilterListener implements IMethodInterceptor {
         return result;
     }
 
-    private List<String> getTesCases() {
+    private List<String> getAutotestIdsFromTestRun() {
         final List<String> testIds = new ArrayList<>();
         final TestItSettings testItSettings = ConfigFactory.create(TestItSettings.class);
 
@@ -42,7 +42,6 @@ public class TestFilterListener implements IMethodInterceptor {
         for (TestResult result : results) {
             testIds.add(result.getAutoTest().getGlobalId());
         }
-        System.out.println("testIds: " + testIds);
         return testIds;
     }
 
