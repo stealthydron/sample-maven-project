@@ -1,11 +1,12 @@
 package com.github.stealthydron.example.testit;
 
 
+import com.github.stealthydron.example.testit.annotation.AutotestId;
 import com.github.stealthydron.example.testit.client.TestItClient;
 import com.github.stealthydron.example.testit.client.TestItClientBuilder;
+import com.github.stealthydron.example.testit.client.dto.TestRun;
 import com.github.stealthydron.example.testit.client.dto.TestSuite;
 import com.github.stealthydron.example.testit.client.dto.WorkItem;
-import io.qameta.allure.TmsLink;
 import org.aeonbits.owner.ConfigFactory;
 import org.testng.IMethodInstance;
 import org.testng.IMethodInterceptor;
@@ -40,6 +41,10 @@ public class TestFilterListener implements IMethodInterceptor {
                 .build();
 
 
+        final TestRun testRun = testItClient.getTestRun(testItSettings.testRunId());
+        System.out.println(testRun);
+
+
         final List<TestSuite> testSuites = testItClient.getTestSuitesFromTestPlan(testItSettings.testPlanId());
 
         final List<String> suiteIdList = new ArrayList<>();
@@ -62,7 +67,7 @@ public class TestFilterListener implements IMethodInterceptor {
         return instance.getMethod()
                 .getConstructorOrMethod()
                 .getMethod()
-                .getAnnotation(TmsLink.class)
+                .getAnnotation(AutotestId.class)
                 .value();
     }
 }
