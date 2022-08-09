@@ -56,19 +56,18 @@ public class TestItListener extends TestListenerAdapter {
             List<AutotestResults> autotestResultsList = new ArrayList<>();
             for (String testResult : testResults) {
                 AllureResultsContainer result = getResultsFromFile(testResult);
-
                 if (result == null) {
                     logger.error("Не удалось получить результаты для " + testResult);
                 } else {
-
                     final String testCaseId = getTestId(result);
+                    System.out.println(testCaseId);
 
                     if (testCaseId.isEmpty()) {
                         logger.error("Не указана аннотация @TmsLink для " + result.getFullName());
                     } else {
                         AutotestResults autotestResults = AllureResultsMapper.mapToTestItResults(result);
                         autotestResults.setConfigurationId(configurationId);
-                        String externalId = testItClient.getWorkItem(testCaseId).getAutoTests().get(0).getExternalId();
+                        String externalId = testItClient.getAutotest(testCaseId).getExternalId();
                         autotestResults.setAutoTestExternalId(externalId);
                         autotestResultsList.add(autotestResults);
                     }

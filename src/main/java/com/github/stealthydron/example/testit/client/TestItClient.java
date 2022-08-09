@@ -13,13 +13,8 @@ public interface TestItClient {
     @RequestLine("GET /api/v2/workItems/{testCaseId}")
     WorkItem getWorkItem(@Param("testCaseId") String testCaseId);
 
-    @Headers("Content-Type: application/json")
-    @RequestLine("GET /api/v2/testPlans/{testPlanId}/testSuites")
-    List<TestSuite> getTestSuitesFromTestPlan(@Param("testPlanId") String testPlanId);
-
-    @Headers("Content-Type: application/json")
-    @RequestLine("GET /api/v2/testSuites/{testSuiteId}/workItems")
-    List<WorkItem> getWorkItemsFromSuite(@Param("testSuiteId") String testSuiteId);
+    @RequestLine("GET /api/v2/autoTests/{autoTestId}")
+    Autotest getAutotest(@Param("autoTestId") String autoTestId);
 
     @RequestLine("POST /api/v2/testPlans/{testPlanId}/start")
     void startTestPlan(@Param("testPlanId") String testPlanId);
