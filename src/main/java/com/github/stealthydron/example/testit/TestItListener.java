@@ -44,7 +44,7 @@ public class TestItListener extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
         final String allureResultsDirectory = "target/allure-results";
-        System.out.println(new Gson().toJson(testItClient.getTestRun(testItSettings.testRunId())));
+        System.out.println(new Gson().toJson(testItClient.getTestRun(testItSettings.testRunId()),AutotestResults.class));
         File[] files = new File(allureResultsDirectory).listFiles();
         if (files == null) {
             logger.error("Не удалось получить файлы из директории " + allureResultsDirectory);
