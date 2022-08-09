@@ -1,16 +1,10 @@
 package com.github.stealthydron.example.testit.client.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
+@Data
 public class Autotest {
 
     private String id;

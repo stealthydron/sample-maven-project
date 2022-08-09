@@ -14,7 +14,4 @@ public class AutotestTestStep {
     private String title;
     private String description;
 
-    public AutotestTestStep(String title) {
-        this.title = title;
-    }
 }

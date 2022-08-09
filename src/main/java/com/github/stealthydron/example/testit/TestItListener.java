@@ -44,8 +44,9 @@ public class TestItListener extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
         final String allureResultsDirectory = "target/allure-results";
-        String configurationId = testItClient.getTestRun(testItSettings.testRunId()).get(0).getConfigurationId();
+        String configurationId = testItClient.getTestRun(testItSettings.testRunId()).getTestResults().get(0).getConfigurationId();
         System.out.println(configurationId);
+
         File[] files = new File(allureResultsDirectory).listFiles();
         if (files == null) {
             logger.error("Не удалось получить файлы из директории " + allureResultsDirectory);

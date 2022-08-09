@@ -37,5 +37,5 @@ public interface TestItClient {
 
     @Headers("Content-Type: application/json")
     @RequestLine("GET /api/v2/testRuns/{testRunId}")
-    List<AutotestResults> getTestRun(@Param(value = "testRunId") String testRunId);
+    TestRun getTestRun(@Param(value = "testRunId") String testRunId);
 }

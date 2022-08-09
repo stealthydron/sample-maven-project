@@ -1,7 +1,6 @@
 package com.github.stealthydron.example.allure.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
