@@ -39,7 +39,7 @@ public class TestWithBeforeAndAfter {
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
         mainSteps.mainStep2();
-        mainSteps.assertThatSomething();
+        mainSteps.assertThatSomethingFail();
     }
 
     @Epic("TestWithBeforeAndAfter epic")
@@ -54,7 +54,7 @@ public class TestWithBeforeAndAfter {
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
         mainSteps.mainStep2();
-        mainSteps.assertThatSomething();
+        mainSteps.assertThatSomethingFail();
     }
 
     @Epic("TestWithBeforeAndAfter epic")
@@ -69,7 +69,7 @@ public class TestWithBeforeAndAfter {
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
         mainSteps.mainStep2();
-        mainSteps.assertThatSomething();
+        mainSteps.assertThatSomethingPass();
     }
 
     @Epic("TestWithBeforeAndAfter epic")
@@ -84,7 +84,7 @@ public class TestWithBeforeAndAfter {
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
         mainSteps.mainStep2();
-        mainSteps.assertThatSomething();
+        mainSteps.assertThatSomethingFail();
     }
 
     @Epic("TestWithBeforeAndAfter epic")
@@ -99,7 +99,7 @@ public class TestWithBeforeAndAfter {
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
         mainSteps.mainStep2();
-        mainSteps.assertThatSomething();
+        mainSteps.assertThatSomethingPass();
     }
 
     @Step("Before class setup")

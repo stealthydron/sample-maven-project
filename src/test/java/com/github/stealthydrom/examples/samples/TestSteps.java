@@ -1,5 +1,6 @@
 package com.github.stealthydrom.examples.samples;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 
 public class TestSteps {
@@ -13,6 +14,7 @@ public class TestSteps {
     @Step("Test step 2")
     public TestSteps testStep2() {
         System.out.println("Test step 2");
+        Allure.addAttachment("test","sfksfjslfjlskfjkl");
         substep();
         return this;
     }
