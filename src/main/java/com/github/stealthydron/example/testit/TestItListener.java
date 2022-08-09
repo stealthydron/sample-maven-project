@@ -60,7 +60,7 @@ public class TestItListener extends TestListenerAdapter {
                     logger.error("Не удалось получить результаты для " + testResult);
                 } else {
                     final String testCaseId = getTestId(result);
-                    System.out.println(testCaseId);
+                    System.out.println("testCaseId: "+ testCaseId);
 
                     if (testCaseId.isEmpty()) {
                         logger.error("Не указана аннотация @TmsLink для " + result.getFullName());
@@ -73,7 +73,7 @@ public class TestItListener extends TestListenerAdapter {
                     }
                 }
             }
-            System.out.println(autotestResultsList);
+            System.out.println("autotestResultsList: "+autotestResultsList);
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
             if(!testItSettings.testPlanId().isEmpty()){
                 testItClient.completeTestPlan(testItSettings.testPlanId());
