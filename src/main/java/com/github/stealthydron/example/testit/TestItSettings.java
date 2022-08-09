@@ -9,17 +9,11 @@ public interface TestItSettings extends Config {
 
     String endpoint();
 
-    String projectId();
-
     String token();
 
-    @Key("testRunId")
     String testRunId();
 
-    @Key("testPlanId")
     String testPlanId();
 
-    @Key("configurationId")
     String configurationId();
-
 }

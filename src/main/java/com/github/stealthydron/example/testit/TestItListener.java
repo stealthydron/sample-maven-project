@@ -37,7 +37,6 @@ public class TestItListener extends TestListenerAdapter {
 
         System.out.println("testRunId=" + testItSettings.testRunId());
         System.out.println("testPlanId=" + testItSettings.testPlanId());
-        System.out.println("configurationId=" + testItSettings.configurationId());
 
         testItClient.startTestPlan(testItSettings.testPlanId());
     }
@@ -45,6 +44,7 @@ public class TestItListener extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
         final String allureResultsDirectory = "target/allure-results";
+        System.out.println(new Gson().toJson(testItClient.getTestRun(testItSettings.testRunId())));
         File[] files = new File(allureResultsDirectory).listFiles();
         if (files == null) {
             logger.error("Не удалось получить файлы из директории " + allureResultsDirectory);
