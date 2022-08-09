@@ -84,7 +84,7 @@ public class TestItListener extends TestListenerAdapter {
     private String getTestId(AllureResultsContainer resultsContainer) {
         Link tms = resultsContainer.getLinks()
                 .stream()
-                .filter(link -> link.getType().equals("tms"))
+                .filter(link -> link.getType().equals("autotest"))
                 .findFirst()
                 .orElse(null);
         if (tms != null) {
