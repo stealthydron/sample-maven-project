@@ -9,7 +9,7 @@ import java.util.Map;
 public class TestResult {
 
     private Configuration configuration;
-    private List<AutotestResults> autoTest;
+    private Autotest autoTest;
     private String id;
     private String configurationId;
     private String testRunId;
