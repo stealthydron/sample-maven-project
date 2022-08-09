@@ -22,6 +22,7 @@ public class TestFilterListener implements IMethodInterceptor {
         System.out.println("testIdList: " + testIdList);
 
         for (IMethodInstance iMethodInstance : list) {
+            System.out.println("iMethodInstance: "+iMethodInstance.getMethod().getMethodName());
             String testId = getTestId(iMethodInstance);
             System.out.println("testId: " + testId);
             if (testIdList.contains(testId)) {
@@ -29,6 +30,7 @@ public class TestFilterListener implements IMethodInterceptor {
             }
             System.out.println("result.size():"+result.size());
         }
+        System.out.println("result"+result);
         return result;
     }
 
