@@ -73,6 +73,7 @@ public class TestItListener extends TestListenerAdapter {
                     }
                 }
             }
+            System.out.println(autotestResultsList);
             testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
             if(!testItSettings.testPlanId().isEmpty()){
                 testItClient.completeTestPlan(testItSettings.testPlanId());
