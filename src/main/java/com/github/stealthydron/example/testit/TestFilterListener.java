@@ -42,6 +42,7 @@ public class TestFilterListener implements IMethodInterceptor {
         for (TestResult result : results) {
             testIds.add(result.getAutoTest().getExternalId());
         }
+        System.out.println("testIds: " + testIds);
         return testIds;
     }
 
