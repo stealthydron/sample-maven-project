@@ -49,6 +49,6 @@ public class MainSteps {
     }
     @Step("Main Step 3 assert 2")
     public void assertThatSomethingPass() {
-        assertEquals(1, 2);
+        assertEquals(1, 1);
     }
 }
