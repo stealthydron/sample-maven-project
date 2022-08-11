@@ -1,43 +1,34 @@
 package com.github.stealthydron.example.testit.client.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
-@Getter
-@Setter
-@ToString
+@Data
 public class WorkItem {
 
+    private UUID id;
     private String globalId;
-    private String name;
-    private String description;
-    private String projectId;
-    private String sectionId;
+    private UUID projectId;
     private String entityTypeName;
+    private String name;
+    private List<Attachment> attachments;
+    private List<WorkItemStep> steps;
+    private List<WorkItemStep> postconditionSteps;
+    private List<WorkItemStep> preconditionSteps;
+    private List<WorkItemStep> sectionPreconditionSteps;
+    private List<WorkItemStep> sectionPostconditionSteps;
+    private UUID sectionId;
+    private String description;
     private String state;
     private String priority;
-    private List<WorkItemTestStep> steps;
-    private List<WorkItemTestStep> preconditionSteps;
-    private List<WorkItemTestStep> postconditionSteps;
-    private int duration;
     private Map<String, String> attributes;
     private List<Tag> tags;
     private List<Link> links;
-    private List<Autotest> autoTests;
+    private Long duration;
+    private List<AutotestDto> autoTests;
 
-    public WorkItem() {
-        this.steps = new ArrayList<>();
-        this.preconditionSteps = new ArrayList<>();
-        this.postconditionSteps = new ArrayList<>();
-        this.duration = 300;
-        this.attributes = new HashMap<>();
-        this.tags = new ArrayList<>();
-        this.links = new ArrayList<>();
-    }
+
 }

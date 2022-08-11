@@ -1,10 +1,10 @@
+
 package com.github.stealthydron.example.testit;
 
 import com.github.stealthydron.example.allure.model.AllureResultsContainer;
 import com.github.stealthydron.example.allure.model.AllureResultsMapper;
 import com.github.stealthydron.example.allure.model.Link;
-import com.github.stealthydron.example.testit.client.TestItClient;
-import com.github.stealthydron.example.testit.client.TestItClientBuilder;
+import com.github.stealthydron.example.testit.client.TestItApi;
 import com.github.stealthydron.example.testit.client.dto.AutotestResults;
 import com.google.gson.Gson;
 import org.aeonbits.owner.ConfigFactory;
@@ -24,13 +24,8 @@ import java.util.stream.Stream;
 public class TestItListener extends TestListenerAdapter {
 
     private static final Logger logger = LogManager.getLogger(TestItListener.class);
-
     private final TestItSettings testItSettings = ConfigFactory.create(TestItSettings.class);
-
-    private final TestItClient testItClient = new TestItClientBuilder()
-            .endpoint(testItSettings.endpoint())
-            .token(testItSettings.token())
-            .build();
+    private final TestItApi testItApi = new TestItApi(testItSettings.endpoint(), testItSettings.token());
 
     @Override
     public void onStart(ITestContext context) {
@@ -41,7 +36,7 @@ public class TestItListener extends TestListenerAdapter {
     @Override
     public void onFinish(ITestContext context) {
         final String allureResultsDirectory = "target/allure-results";
-        String configurationId = testItClient.getTestRun(testItSettings.testRunId()).getTestResults().get(0).getConfigurationId();
+        String configurationId = testItApi.getTestRunsClient().getTestRun(testItSettings.testRunId()).getTestResults().get(0).getConfigurationId();
         System.out.println("allure.results.directory: " + System.getProperty("allure.results.directory"));
 
         File[] files = new File(allureResultsDirectory).listFiles();
@@ -63,14 +58,14 @@ public class TestItListener extends TestListenerAdapter {
                     } else {
                         AutotestResults autotestResults = AllureResultsMapper.mapToTestItResults(result);
                         autotestResults.setConfigurationId(configurationId);
-                        String externalId = testItClient.getAutotest(testCaseId).getExternalId();
+                        String externalId = testItApi.getAutotestsClient().getAutoTest(testCaseId).getExternalId();
                         autotestResults.setAutoTestExternalId(externalId);
                         autotestResultsList.add(autotestResults);
                     }
                 }
             }
             System.out.println("autotestResultsList: " + autotestResultsList);
-            testItClient.setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
+            testItApi.getTestRunsClient().setAutoTestsResults(testItSettings.testRunId(), autotestResultsList);
         }
     }
 

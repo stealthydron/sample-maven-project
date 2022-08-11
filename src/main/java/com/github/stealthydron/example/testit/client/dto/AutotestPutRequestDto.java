@@ -1,11 +1,11 @@
 package com.github.stealthydron.example.testit.client.dto;
 
-import lombok.*;
+import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class Autotest {
+public class AutotestPutRequestDto {
 
     private String id;
     private String externalId;
@@ -16,5 +16,10 @@ public class Autotest {
     private String classname;
     private String title;
     private String description;
-    private List<AutotestTestStep> steps;
+    private List<AutotestStep> steps;
+    private List<AutotestStep> setup;
+    private List<AutotestStep> teardown;
+    private List<Link> links;
+    private List<String> workItemIdsForLinkWithAutoTest;
+    private boolean isFlaky;
 }

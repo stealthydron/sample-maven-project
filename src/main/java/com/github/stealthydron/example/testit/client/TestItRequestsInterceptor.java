@@ -22,6 +22,10 @@ public class TestItRequestsInterceptor implements Interceptor {
         Request requestWithAuthorization = request.newBuilder()
                 .addHeader("Authorization", "PrivateToken " + privateToken)
                 .build();
-        return chain.proceed(requestWithAuthorization);
+        Response response = chain.proceed(requestWithAuthorization);
+        if (!response.isSuccessful()) {
+            System.out.println("sdfsfsdfsf");
+        }
+        return response;
     }
 }

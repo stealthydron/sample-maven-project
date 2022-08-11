@@ -3,8 +3,8 @@ package com.github.stealthydron.example.testit.client.dto;
 import lombok.Data;
 
 @Data
-public class Tag {
+public class ItemId {
 
-    private String name;
-    private String value;
+    private String id;
+    private String globalId;
 }

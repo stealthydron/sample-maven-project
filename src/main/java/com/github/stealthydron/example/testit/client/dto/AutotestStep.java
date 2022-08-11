@@ -5,16 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
-public class TestSuite {
+@ToString
+public class AutotestStep {
 
-    private String id;
-    private String name;
-    private String testPlanId;
-    private List<TestSuite> children;
+    private String title;
+    private String description;
+
 }

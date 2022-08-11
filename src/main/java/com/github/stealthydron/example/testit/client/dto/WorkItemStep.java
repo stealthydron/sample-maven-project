@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Accessors(fluent = true)
 @ToString
-public class WorkItemTestStep {
+public class WorkItemStep {
 
     private String id;
     private String action;

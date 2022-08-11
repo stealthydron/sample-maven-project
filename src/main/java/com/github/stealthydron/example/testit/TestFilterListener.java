@@ -1,9 +1,7 @@
 package com.github.stealthydron.example.testit;
 
-
 import com.github.stealthydron.example.testit.annotation.AutotestId;
-import com.github.stealthydron.example.testit.client.TestItClient;
-import com.github.stealthydron.example.testit.client.TestItClientBuilder;
+import com.github.stealthydron.example.testit.client.TestItApi;
 import com.github.stealthydron.example.testit.client.dto.TestResult;
 import org.aeonbits.owner.ConfigFactory;
 import org.testng.IMethodInstance;
@@ -19,14 +17,9 @@ public class TestFilterListener implements IMethodInterceptor {
     public List<IMethodInstance> intercept(List<IMethodInstance> list, ITestContext iTestContext) {
         final List<IMethodInstance> result = new ArrayList<>();
         final List<String> testIdList = getAutotestIdsFromTestRun();
-        System.out.println("testIdList: " + testIdList);
-
         for (IMethodInstance iMethodInstance : list) {
             String testId = getTestId(iMethodInstance);
-
             if (testIdList.contains(testId)) {
-                System.out.println("testId: " + testId);
-                System.out.println("iMethodInstance: " + iMethodInstance.getMethod().getMethodName());
                 result.add(iMethodInstance);
             }
         }
@@ -36,13 +29,8 @@ public class TestFilterListener implements IMethodInterceptor {
     private List<String> getAutotestIdsFromTestRun() {
         final List<String> testIds = new ArrayList<>();
         final TestItSettings testItSettings = ConfigFactory.create(TestItSettings.class);
-
-        final TestItClient testItClient = new TestItClientBuilder()
-                .endpoint(testItSettings.endpoint())
-                .token(testItSettings.token())
-                .build();
-
-        List<TestResult> results = testItClient.getTestRun(testItSettings.testRunId()).getTestResults();
+        final TestItApi testItApi = new TestItApi(testItSettings.endpoint(), testItSettings.token());
+        List<TestResult> results = testItApi.getTestRunsClient().getTestRun(testItSettings.testRunId()).getTestResults();
         for (TestResult result : results) {
             testIds.add(result.getAutoTest().getGlobalId());
         }
