@@ -1,12 +1,12 @@
-package com.github.stealthydrom.examples.test;
+package com.github.stealthydron.examples.test;
 
-import com.github.stealthydrom.examples.samples.TestSteps;
+import com.github.stealthydron.examples.samples.TestSteps;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.example.testit.annotation.AutotestId;
+import com.github.stealthydron.examples.app.StaticExample;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
-import static com.github.stealthydrom.examples.app.StaticExample.getSomething;
 import static org.testng.Assert.assertEquals;
 
 public class ExportTests {
@@ -20,7 +20,7 @@ public class ExportTests {
     @Test(description = "Test Name")
     @TmsLink("185")
     public void testMethodExample() {
-        String text = getSomething();
+        String text = StaticExample.getSomething();
         testStep(text);
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
@@ -32,7 +32,7 @@ public class ExportTests {
     @Test(description = "Test Name 2")
     @TmsLink("206")
     public void testMethodExample2() {
-        String text = getSomething();
+        String text = StaticExample.getSomething();
         testStep(text);
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
@@ -44,7 +44,7 @@ public class ExportTests {
     @Test(description = "Test Name 3")
     @TmsLink("208")
     public void testMethodExample3() {
-        String text = getSomething();
+        String text = StaticExample.getSomething();
         testStep2(text);
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
@@ -57,7 +57,7 @@ public class ExportTests {
     @TmsLink("218")
     @AutotestId("217")
     public void testMethodExample4() {
-        String text = getSomething();
+        String text = StaticExample.getSomething();
         testStep2(text);
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
@@ -70,7 +70,7 @@ public class ExportTests {
     @TmsLink("230")
     @AutotestId("229")
     public void testMethodExample5() {
-        String text = getSomething();
+        String text = StaticExample.getSomething();
         testStep2(text);
         steps.testStep1().testStep2();
         mainSteps.mainStep1();

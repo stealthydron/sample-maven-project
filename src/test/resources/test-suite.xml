@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Tracking" parallel="classes" thread-count="4">
     <listeners>
-        <listener class-name="com.github.stealthydron.example.testit.TestFilterListener"/>
-        <listener class-name="com.github.stealthydron.example.testit.TestItListener"></listener>
+        <listener class-name="com.github.stealthdron.testng.testit.TestItListener"/>
+        <listener class-name="com.github.stealthdron.testng.testit.TestFilterListener"/>
     </listeners>
     <test name="test">
         <packages>

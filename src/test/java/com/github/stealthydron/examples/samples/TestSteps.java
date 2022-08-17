@@ -1,4 +1,4 @@
-package com.github.stealthydrom.examples.samples;
+package com.github.stealthydron.examples.samples;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;

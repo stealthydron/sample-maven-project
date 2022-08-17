@@ -1,15 +1,17 @@
-package com.github.stealthydrom.examples.test;
+package com.github.stealthydron.examples.test;
 
-import com.github.stealthydrom.examples.samples.TestSteps;
 import com.github.stealthydron.example.steps.MainSteps;
-import com.github.stealthydron.example.testit.annotation.AutotestId;
+import com.github.stealthydron.examples.samples.TestSteps;
+import com.github.stealthydron.testit.annotations.AutotestId;
 import io.qameta.allure.*;
+import io.qameta.allure.testng.Tag;
+import io.qameta.allure.testng.Tags;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.github.stealthydrom.examples.app.StaticExample.doSomething;
-import static com.github.stealthydrom.examples.app.StaticExample.getSomething;
+import static com.github.stealthydron.examples.app.StaticExample.doSomething;
+import static com.github.stealthydron.examples.app.StaticExample.getSomething;
 
 public class TestWithBeforeAndAfter {
 
@@ -48,6 +50,7 @@ public class TestWithBeforeAndAfter {
     @Test(description = "TestWithBeforeAndAfter testMethodExample6")
     @TmsLink("51")
     @AutotestId("50")
+    @Tags({@Tag("smoke")})
     public void testMethodExample6() {
         String text = getSomething();
         doSomething(text);
@@ -101,6 +104,22 @@ public class TestWithBeforeAndAfter {
         mainSteps.mainStep2();
         mainSteps.assertThatSomethingPass();
     }
+
+    @Epic("TestWithBeforeAndAfter epic")
+    @Feature("TestWithBeforeAndAfter testMethodExample16")
+    @Story("TestWithBeforeAndAfter testMethodExample16")
+    @Test(description = "TestWithBeforeAndAfter testMethodExample16")
+    @TmsLink("106")
+    @AutotestId("105")
+    public void testMethodExample16() {
+        String text = getSomething();
+        doSomething(text);
+        steps.testStep1().testStep2();
+        mainSteps.mainStep1();
+        mainSteps.mainStep2();
+        mainSteps.assertThatSomethingPass();
+    }
+
 
     @Step("Before class setup")
     private void beforeClassSetUp() {
