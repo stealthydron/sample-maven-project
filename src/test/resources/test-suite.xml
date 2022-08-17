@@ -7,7 +7,7 @@
     </listeners>
     <test name="test">
         <packages>
-            <package name="com.github.stealthydrom.examples.test.*"/>
+            <package name="com.github.stealthydron.examples.test.*"/>
         </packages>
     </test>
 </suite>
