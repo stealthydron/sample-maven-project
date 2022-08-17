@@ -2,8 +2,8 @@ package com.github.stealthydron.examples.test;
 
 import com.github.stealthydron.examples.samples.TestSteps;
 import com.github.stealthydron.example.steps.MainSteps;
-import com.github.stealthydron.example.testit.annotation.AutotestId;
 import com.github.stealthydron.examples.app.StaticExample;
+import com.github.stealthydron.testit.annotations.AutotestId;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
 

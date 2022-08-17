@@ -1,7 +1,7 @@
 package com.github.stealthydron.examples.test;
 
 import com.github.stealthydron.examples.app.Application;
-import com.github.stealthydron.example.testit.annotation.AutotestId;
+import com.github.stealthydron.testit.annotations.AutotestId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
