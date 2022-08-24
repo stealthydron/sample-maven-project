@@ -1,8 +1,8 @@
 package com.github.stealthydron.examples.test;
 
+import com.github.avpyanov.testit.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
-import com.github.stealthydron.testit.annotations.AutotestId;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
