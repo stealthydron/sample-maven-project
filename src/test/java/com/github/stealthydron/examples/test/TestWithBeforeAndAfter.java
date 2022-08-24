@@ -1,8 +1,8 @@
 package com.github.stealthydron.examples.test;
 
+import com.github.avpyanov.testit.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
-import com.github.stealthydron.testit.annotations.AutotestId;
 import io.qameta.allure.*;
 import io.qameta.allure.testng.Tag;
 import io.qameta.allure.testng.Tags;
@@ -28,13 +28,11 @@ public class TestWithBeforeAndAfter {
         beforeMethodStep();
     }
 
-
+    @AutotestId("18")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter feature")
     @Story("TestWithBeforeAndAfter story")
     @Test(description = "TestWithBeforeAndAfter Name")
-    @TmsLink("55")
-    @AutotestId("54")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);
@@ -44,12 +42,11 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingFail();
     }
 
+    @AutotestId("22")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample6")
     @Story("TestWithBeforeAndAfter testMethodExample6")
     @Test(description = "TestWithBeforeAndAfter testMethodExample6")
-    @TmsLink("51")
-    @AutotestId("50")
     @Tags({@Tag("smoke")})
     public void testMethodExample6() {
         String text = getSomething();
@@ -60,12 +57,11 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingFail();
     }
 
+    @AutotestId("20")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample7")
     @Story("TestWithBeforeAndAfter testMethodExample7")
     @Test(description = "TestWithBeforeAndAfter testMethodExample7")
-    @TmsLink("53")
-    @AutotestId("52")
     public void testMethodExample7() {
         String text = getSomething();
         doSomething(text);
@@ -75,12 +71,11 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingPass();
     }
 
+    @AutotestId("19")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample11")
     @Story("TestWithBeforeAndAfter testMethodExample11")
     @Test(description = "TestWithBeforeAndAfter testMethodExample11")
-    @TmsLink("49")
-    @AutotestId("48")
     public void testMethodExample11() {
         String text = getSomething();
         doSomething(text);
@@ -90,12 +85,11 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingFail();
     }
 
+    @AutotestId("17")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample14")
     @Story("TestWithBeforeAndAfter testMethodExample14")
     @Test(description = "TestWithBeforeAndAfter testMethodExample14")
-    @TmsLink("57")
-    @AutotestId("56")
     public void testMethodExample14() {
         String text = getSomething();
         doSomething(text);
@@ -105,13 +99,13 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingPass();
     }
 
+
+    @AutotestId("21")
     @Epic("TestWithBeforeAndAfter epic")
-    @Feature("TestWithBeforeAndAfter testMethodExample16")
-    @Story("TestWithBeforeAndAfter testMethodExample16")
-    @Test(description = "TestWithBeforeAndAfter testMethodExample16")
-    @TmsLink("106")
-    @AutotestId("105")
-    public void testMethodExample16() {
+    @Feature("TestWithBeforeAndAfter testMethodExample19")
+    @Story("TestWithBeforeAndAfter testMethodExample19")
+    @Test(description = "TestWithBeforeAndAfter testMethodExample19")
+    public void testMethodExample19() {
         String text = getSomething();
         doSomething(text);
         steps.testStep1().testStep2();

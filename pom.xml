@@ -155,9 +155,9 @@
             <version>${apache.commons.lang.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.github.stealthydron</groupId>
+            <groupId>com.github.avpyanov</groupId>
             <artifactId>testit-testng-connector</artifactId>
-            <version>1cc7e58233</version>
+            <version>0.1</version>
         </dependency>
     </dependencies>
 </project>
