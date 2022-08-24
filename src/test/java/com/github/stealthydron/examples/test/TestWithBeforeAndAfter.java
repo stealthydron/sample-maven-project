@@ -1,9 +1,11 @@
 package com.github.stealthydron.examples.test;
 
-import com.github.avpyanov.testit.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
-import io.qameta.allure.*;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.Story;
 import io.qameta.allure.testng.Tag;
 import io.qameta.allure.testng.Tags;
 import org.testng.annotations.BeforeClass;
@@ -28,7 +30,6 @@ public class TestWithBeforeAndAfter {
         beforeMethodStep();
     }
 
-    @AutotestId("18")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter feature")
     @Story("TestWithBeforeAndAfter story")
@@ -42,7 +43,6 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingFail();
     }
 
-    @AutotestId("22")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample6")
     @Story("TestWithBeforeAndAfter testMethodExample6")
@@ -57,7 +57,6 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingFail();
     }
 
-    @AutotestId("20")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample7")
     @Story("TestWithBeforeAndAfter testMethodExample7")
@@ -71,7 +70,6 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingPass();
     }
 
-    @AutotestId("19")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample11")
     @Story("TestWithBeforeAndAfter testMethodExample11")
@@ -85,7 +83,6 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingFail();
     }
 
-    @AutotestId("17")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample14")
     @Story("TestWithBeforeAndAfter testMethodExample14")
@@ -100,7 +97,6 @@ public class TestWithBeforeAndAfter {
     }
 
 
-    @AutotestId("21")
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter testMethodExample19")
     @Story("TestWithBeforeAndAfter testMethodExample19")
