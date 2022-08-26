@@ -17,5 +17,9 @@ public class TestngListener extends TestListenerAdapter implements IInvokedMetho
         if (!iInvokedMethod.isConfigurationMethod() && result.getStatus() == ITestResult.FAILURE) {
             Allure.addAttachment("on test failure attachment", "on test failure attachment content");
         }
+
+        if (!iInvokedMethod.isConfigurationMethod() && result.getStatus() == ITestResult.SKIP) {
+            result.setStatus(ITestResult.FAILURE);
+        }
     }
 }
