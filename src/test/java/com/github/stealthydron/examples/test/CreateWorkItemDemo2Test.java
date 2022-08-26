@@ -6,6 +6,7 @@ import com.github.stealthydron.examples.TestngListener;
 import com.github.stealthydron.examples.samples.TestSteps;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -22,8 +23,8 @@ public class CreateWorkItemDemo2Test {
     private final MainSteps mainSteps = new MainSteps();
 
     @BeforeMethod
-    public void setup() {
-        assertEquals(2, 1);
+    public void setupMethod() {
+        setup();
     }
 
     @AutotestId("35")
@@ -38,5 +39,10 @@ public class CreateWorkItemDemo2Test {
         mainSteps.mainStep1();
         mainSteps.mainStep2();
         mainSteps.assertThatSomethingFail();
+    }
+
+    @Step("setup")
+    public void setup(){
+        assertEquals(2, 1);
     }
 }

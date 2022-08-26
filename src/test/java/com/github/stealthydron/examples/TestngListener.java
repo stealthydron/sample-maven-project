@@ -1,25 +1,31 @@
 package com.github.stealthydron.examples;
 
 import io.qameta.allure.Allure;
-import org.testng.IInvokedMethod;
+import io.qameta.allure.listener.TestLifecycleListener;
+import io.qameta.allure.model.TestResult;
+import org.testng.IConfigurationListener;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
-public class TestngListener extends TestListenerAdapter implements IInvokedMethodListener {
+public class TestngListener extends TestListenerAdapter implements IInvokedMethodListener, IConfigurationListener, TestLifecycleListener {
+
 
     @Override
-    public void afterInvocation(IInvokedMethod iInvokedMethod, ITestResult result) {
-        if (iInvokedMethod.isConfigurationMethod() && result.getStatus() == ITestResult.FAILURE) {
-            Allure.addAttachment("on configuration failure attachment", "on configuration failure attachment content");
-        }
-
-        if (!iInvokedMethod.isConfigurationMethod() && result.getStatus() == ITestResult.FAILURE) {
-            Allure.addAttachment("on test failure attachment", "on test failure attachment content");
-        }
-
-        if (!iInvokedMethod.isConfigurationMethod() && result.getStatus() == ITestResult.SKIP) {
-            result.setStatus(ITestResult.FAILURE);
-        }
+    public void onConfigurationFailure(ITestResult tr) {
+        Allure.addAttachment("on configuration failure attachment", "on configuration failure attachment content");
     }
+
+    @Override
+    public void onTestFailure(ITestResult tr) {
+        System.out.println(Allure.getLifecycle().getCurrentTestCaseOrStep());
+        Allure.addAttachment("on test failure attachment", "on test failure attachment content");
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult tr) {
+      // tr.setStatus(ITestResult.FAILURE);
+    }
+
+
 }
