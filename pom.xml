@@ -149,7 +149,7 @@
         <dependency>
             <groupId>com.github.stealthydron</groupId>
             <artifactId>testit-testng-connector</artifactId>
-            <version>0.1.4</version>
+            <version>0.1.4.1</version>
         </dependency>
     </dependencies>
 </project>

@@ -2,7 +2,6 @@ package com.github.stealthydron.examples;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.listener.TestLifecycleListener;
-import io.qameta.allure.model.TestResult;
 import org.testng.IConfigurationListener;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
