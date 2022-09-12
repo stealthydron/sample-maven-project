@@ -1,5 +1,6 @@
 package com.github.stealthydron.examples.test;
 
+import com.github.avpyanov.testit.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
 import io.qameta.allure.*;
@@ -24,7 +25,7 @@ public class CreateWorkItemDemo2Test {
     @Feature("Create Work Item Demo Epic Feature")
     @Story("Create Work Item Demo Story")
     @Test(description = "Test should fail on setup")
-    @TmsLink("65")
+    @AutotestId("110")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);
