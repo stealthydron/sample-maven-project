@@ -2,8 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Tracking" parallel="classes" thread-count="4">
     <listeners>
-        <listener class-name="com.github.stealthydron.testng.testit.TestFilterListener"/>
-        <listener class-name="com.github.stealthydron.testng.testit.TestItListener"/>
+        <listener class-name="com.github.avpyanov.connector.testng.listeners.GetTestIdsFromTestRun"/>
     </listeners>
     <test name="test">
         <packages>
