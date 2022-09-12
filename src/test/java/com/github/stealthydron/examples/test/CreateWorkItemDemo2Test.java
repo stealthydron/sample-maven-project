@@ -1,22 +1,15 @@
 package com.github.stealthydron.examples.test;
 
-import com.github.avpyanov.testit.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
-import com.github.stealthydron.examples.TestngListener;
 import com.github.stealthydron.examples.samples.TestSteps;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.github.stealthydron.examples.app.StaticExample.doSomething;
 import static com.github.stealthydron.examples.app.StaticExample.getSomething;
 import static org.testng.Assert.assertEquals;
 
-@Listeners({TestngListener.class})
 public class CreateWorkItemDemo2Test {
 
     private final TestSteps steps = new TestSteps();
@@ -27,11 +20,11 @@ public class CreateWorkItemDemo2Test {
         setup();
     }
 
-    @AutotestId("35")
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Epic Feature")
     @Story("Create Work Item Demo Story")
     @Test(description = "Test should fail on setup")
+    @TmsLink("65")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);

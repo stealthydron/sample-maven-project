@@ -2,10 +2,7 @@ package com.github.stealthydron.examples.test;
 
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import io.qameta.allure.testng.Tag;
 import io.qameta.allure.testng.Tags;
 import org.testng.annotations.BeforeClass;
@@ -34,6 +31,7 @@ public class TestWithBeforeAndAfter {
     @Feature("TestWithBeforeAndAfter feature")
     @Story("TestWithBeforeAndAfter story")
     @Test(description = "TestWithBeforeAndAfter Name")
+    @TmsLink("79")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);
@@ -47,6 +45,7 @@ public class TestWithBeforeAndAfter {
     @Feature("TestWithBeforeAndAfter testMethodExample6")
     @Story("TestWithBeforeAndAfter testMethodExample6")
     @Test(description = "TestWithBeforeAndAfter testMethodExample6")
+    @TmsLink("83")
     @Tags({@Tag("smoke")})
     public void testMethodExample6() {
         String text = getSomething();
@@ -61,6 +60,7 @@ public class TestWithBeforeAndAfter {
     @Feature("TestWithBeforeAndAfter testMethodExample7")
     @Story("TestWithBeforeAndAfter testMethodExample7")
     @Test(description = "TestWithBeforeAndAfter testMethodExample7")
+    @TmsLink("77")
     public void testMethodExample7() {
         String text = getSomething();
         doSomething(text);
@@ -74,6 +74,7 @@ public class TestWithBeforeAndAfter {
     @Feature("TestWithBeforeAndAfter testMethodExample11")
     @Story("TestWithBeforeAndAfter testMethodExample11")
     @Test(description = "TestWithBeforeAndAfter testMethodExample11")
+    @TmsLink("75")
     public void testMethodExample11() {
         String text = getSomething();
         doSomething(text);
@@ -87,6 +88,7 @@ public class TestWithBeforeAndAfter {
     @Feature("TestWithBeforeAndAfter testMethodExample14")
     @Story("TestWithBeforeAndAfter testMethodExample14")
     @Test(description = "TestWithBeforeAndAfter testMethodExample14")
+    @TmsLink("85")
     public void testMethodExample14() {
         String text = getSomething();
         doSomething(text);
@@ -101,6 +103,7 @@ public class TestWithBeforeAndAfter {
     @Feature("TestWithBeforeAndAfter testMethodExample19")
     @Story("TestWithBeforeAndAfter testMethodExample19")
     @Test(description = "TestWithBeforeAndAfter testMethodExample19")
+    @TmsLink("81")
     public void testMethodExample19() {
         String text = getSomething();
         doSomething(text);
