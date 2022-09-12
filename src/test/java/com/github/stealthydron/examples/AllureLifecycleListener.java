@@ -35,7 +35,7 @@ public class AllureLifecycleListener implements TestLifecycleListener {
     @Override
     public void afterTestStop(TestResult result) {
         if (testItSettings.testRunId() != null) {
-            final String testCaseId = getTestId(result, "autotest");
+            final String testCaseId = getTestId(result, "tms");
             if (!testCaseId.isEmpty()) {
                 String configurationId = testItApi.getTestRunsClient().getTestRun(testItSettings.testRunId())
                         .getTestResults()

@@ -3,7 +3,6 @@ package com.github.stealthydron.examples.test;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
 import io.qameta.allure.*;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.github.stealthydron.examples.app.StaticExample.doSomething;
