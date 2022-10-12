@@ -69,4 +69,32 @@ public class CreateWorkItemDemoTest {
         mainSteps.mainStep2();
         mainSteps.assertThatSomethingFail();
     }
+
+
+    @Feature("Create Work Item Demo Feature")
+    @Story("Create Work Item Demo Story")
+    @Test(description = "Create Work Item Demo Test12 Name")
+    @AutotestId("115")
+    public void testMethodExample12() {
+        String text = getSomething();
+        doSomething(text);
+        steps.testStep1().testStep2();
+        mainSteps.mainStep1();
+        mainSteps.mainStep2();
+        mainSteps.assertThatSomethingFail();
+    }
+
+    @Epic("Create Work Item Demo Epic")
+    @Feature("Create Work Item Demo Feature")
+    @TmsLink("202")
+    @AutotestId("201")
+    @Test(description = "Create Work Item Demo Test13 Name")
+    public void testMethodExample13() {
+        String text = getSomething();
+        doSomething(text);
+        steps.testStep1().testStep2();
+        mainSteps.mainStep1();
+        mainSteps.mainStep2();
+        mainSteps.assertThatSomethingFail();
+    }
 }

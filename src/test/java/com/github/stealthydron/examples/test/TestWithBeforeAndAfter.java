@@ -4,8 +4,6 @@ import com.github.avpyanov.testit.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
 import io.qameta.allure.*;
-import io.qameta.allure.testng.Tag;
-import io.qameta.allure.testng.Tags;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -31,8 +29,9 @@ public class TestWithBeforeAndAfter {
     @Epic("TestWithBeforeAndAfter epic")
     @Feature("TestWithBeforeAndAfter feature")
     @Story("TestWithBeforeAndAfter story")
+    @TmsLink("10")
+    @AutotestId("9")
     @Test(description = "TestWithBeforeAndAfter Name")
-    @AutotestId("94")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);
@@ -43,11 +42,11 @@ public class TestWithBeforeAndAfter {
     }
 
     @Epic("TestWithBeforeAndAfter epic")
-    @Feature("TestWithBeforeAndAfter testMethodExample6")
-    @Story("TestWithBeforeAndAfter testMethodExample6")
-    @Test(description = "TestWithBeforeAndAfter testMethodExample6")
-    @AutotestId("98")
-    @Tags({@Tag("smoke")})
+    @Feature("TestWithBeforeAndAfter feature")
+    @Story("TestWithBeforeAndAfter story")
+    @TmsLink("8")
+    @AutotestId("7")
+    @Test(description = "TestWithBeforeAndAfter Name")
     public void testMethodExample6() {
         String text = getSomething();
         doSomething(text);
@@ -58,25 +57,12 @@ public class TestWithBeforeAndAfter {
     }
 
     @Epic("TestWithBeforeAndAfter epic")
-    @Feature("TestWithBeforeAndAfter testMethodExample7")
-    @Story("TestWithBeforeAndAfter testMethodExample7")
-    @Test(description = "TestWithBeforeAndAfter testMethodExample7")
-    @AutotestId("92")
+    @Feature("TestWithBeforeAndAfter feature")
+    @Story("TestWithBeforeAndAfter story")
+    @TmsLink("12")
+    @AutotestId("11")
+    @Test(description = "TestWithBeforeAndAfter Name")
     public void testMethodExample7() {
-        String text = getSomething();
-        doSomething(text);
-        steps.testStep1().testStep2();
-        mainSteps.mainStep1();
-        mainSteps.mainStep2();
-        mainSteps.assertThatSomethingPass();
-    }
-
-    @Epic("TestWithBeforeAndAfter epic")
-    @Feature("TestWithBeforeAndAfter testMethodExample11")
-    @Story("TestWithBeforeAndAfter testMethodExample11")
-    @Test(description = "TestWithBeforeAndAfter testMethodExample11")
-    @AutotestId("90")
-    public void testMethodExample11() {
         String text = getSomething();
         doSomething(text);
         steps.testStep1().testStep2();
@@ -85,42 +71,21 @@ public class TestWithBeforeAndAfter {
         mainSteps.assertThatSomethingFail();
     }
 
-    @Epic("TestWithBeforeAndAfter epic")
-    @Feature("TestWithBeforeAndAfter testMethodExample14")
-    @Story("TestWithBeforeAndAfter testMethodExample14")
-    @Test(description = "TestWithBeforeAndAfter testMethodExample14")
-    @AutotestId("100")
-    public void testMethodExample14() {
-        String text = getSomething();
-        doSomething(text);
-        steps.testStep1().testStep2();
-        mainSteps.mainStep1();
-        mainSteps.mainStep2();
-        mainSteps.assertThatSomethingPass();
-    }
-
-    @Epic("TestWithBeforeAndAfter epic")
-    @Feature("TestWithBeforeAndAfter testMethodExample19")
-    @Story("TestWithBeforeAndAfter testMethodExample19")
-    @Test(description = "TestWithBeforeAndAfter testMethodExample19")
-    @AutotestId("96")
-    public void testMethodExample19() {
-        String text = getSomething();
-        doSomething(text);
-        steps.testStep1().testStep2();
-        mainSteps.mainStep1();
-        mainSteps.mainStep2();
-        mainSteps.assertThatSomethingPass();
-    }
-
-
     @Step("Before class setup")
     private void beforeClassSetUp() {
+        Allure.addAttachment("test", "Before class setup");
+        testStep("test1", "test2");
         System.out.println("Before class setup");
+    }
+
+    @Step("Before class setup1")
+    private void testStep(String param1, String param2) {
+        System.out.println(param1 + " " + param2);
     }
 
     @Step("Before method step")
     private void beforeMethodStep() {
+        Allure.addAttachment("test", "Before method step");
         System.out.println("before method");
     }
 
