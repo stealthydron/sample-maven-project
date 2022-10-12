@@ -3,12 +3,16 @@ package com.github.stealthydron.examples;
 import com.github.avpyanov.connector.testit.TestItSettings;
 import com.github.avpyanov.testit.client.TestItApiClient;
 import com.github.avpyanov.testit.client.dto.AutotestResults;
+import com.github.avpyanov.testit.client.dto.AutotestResultsStep;
 import com.github.avpyanov.tools.AllureConfig;
 import com.github.avpyanov.tools.AllureResultsUtils;
+import com.github.avpyanov.tools.TestFixtures;
 import com.github.avpyanov.tools.TestRunUtils;
+import com.google.gson.Gson;
 import io.qameta.allure.listener.ContainerLifecycleListener;
 import io.qameta.allure.listener.FixtureLifecycleListener;
 import io.qameta.allure.listener.TestLifecycleListener;
+import io.qameta.allure.model.Label;
 import io.qameta.allure.model.TestResult;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +29,7 @@ public class AllureLifecycleListener implements TestLifecycleListener, FixtureLi
     private final TestItSettings testItSettings = ConfigFactory.create(TestItSettings.class);
     TestItApiClient testItApiClient = new TestItApiClient(testItSettings.endpoint(), testItSettings.token());
 
-    public void afterTestStop(TestResult result) {
+    public void afterTestWrite(TestResult result) {
         AllureConfig.setTestItApiClient(testItApiClient);
         AllureConfig.setAllureFolder("target/allure-results");
         AllureConfig.setAllureResultsPattern("target/allure-results/%s");
@@ -33,12 +37,19 @@ public class AllureLifecycleListener implements TestLifecycleListener, FixtureLi
         if (testItSettings.testRunId() != null) {
             final String testCaseId = getTestId(result, "autotest");
             if (!testCaseId.isEmpty()) {
+
+                String className = getClassName(result);
                 String configurationId = TestRunUtils.getConfigurationId(testItSettings.testRunId());
                 List<AutotestResults> autotestResultsList = new ArrayList<>();
                 AutotestResults resultsFromAllure = AllureResultsUtils.getResultsFromAllure(result);
-                resultsFromAllure.setConfigurationId(configurationId);
-                resultsFromAllure.setAutoTestExternalId(result.getFullName());
+                resultsFromAllure.configurationId(configurationId);
+                resultsFromAllure.autoTestExternalId(result.getFullName());
                 autotestResultsList.add(resultsFromAllure);
+                List<AutotestResultsStep> fixtures = TestFixtures.getFixtures(className);
+
+                resultsFromAllure.setupResults(fixtures);
+
+                System.out.println(new Gson().toJson(resultsFromAllure));
                 try {
                     logger.info("Загрузка результатов тест-рана {}", autotestResultsList);
                     TestRunUtils.uploadTestResults(testItSettings.testRunId(), autotestResultsList);
@@ -49,7 +60,17 @@ public class AllureLifecycleListener implements TestLifecycleListener, FixtureLi
                 logger.warn("Не указана аннотация @AutotestId для {}", result.getFullName());
             }
         }
-        System.out.println("afterTestWrite");
-        System.out.println(result.getFullName());
+    }
+
+    public static String getClassName(TestResult result) {
+        Label label = result.getLabels()
+                .stream()
+                .filter(l -> l.getName().equals("testClass"))
+                .findFirst()
+                .orElse(null);
+
+        if (label != null) {
+            return label.getValue();
+        } else return "";
     }
 }

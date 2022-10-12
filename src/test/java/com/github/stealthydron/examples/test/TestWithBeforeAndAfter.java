@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import static com.github.stealthydron.examples.app.StaticExample.doSomething;
 import static com.github.stealthydron.examples.app.StaticExample.getSomething;
+import static org.testng.Assert.assertEquals;
 
 public class TestWithBeforeAndAfter {
 
@@ -81,6 +82,7 @@ public class TestWithBeforeAndAfter {
     @Step("Before class setup1")
     private void testStep(String param1, String param2) {
         System.out.println(param1 + " " + param2);
+        assertEquals(1, 2);
     }
 
     @Step("Before method step")

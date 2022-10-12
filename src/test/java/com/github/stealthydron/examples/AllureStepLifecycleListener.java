@@ -1,15 +1,26 @@
 package com.github.stealthydron.examples;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.listener.StepLifecycleListener;
+import io.qameta.allure.model.Status;
 import io.qameta.allure.model.StepResult;
 
 public class AllureStepLifecycleListener implements StepLifecycleListener {
 
     public void beforeStepStop(StepResult result) {
-        System.out.println("result.getStatus().value()="+result.getStatus().value());
-        System.out.println("Start:"+result.getName());
+      if(result.getStatus()!= Status.PASSED){
+          Allure.addAttachment(result.getName(),"beforeStepStop");
+      }
     }
     public void afterStepStop(StepResult result) {
-        System.out.println("Stop:"+result.getName());
+        if(result.getStatus()!= Status.PASSED){
+            Allure.addAttachment(result.getName(),"afterStepStop");
+        }
+    }
+
+    public void beforeStepUpdate(StepResult result) {
+        if(result.getStatus()!= Status.PASSED){
+            Allure.addAttachment(result.getName(),"beforeStepUpdate");
+        }
     }
 }
