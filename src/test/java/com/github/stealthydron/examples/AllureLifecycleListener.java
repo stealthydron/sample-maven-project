@@ -25,7 +25,7 @@ public class AllureLifecycleListener implements TestLifecycleListener, FixtureLi
     private final TestItSettings testItSettings = ConfigFactory.create(TestItSettings.class);
     TestItApiClient testItApiClient = new TestItApiClient(testItSettings.endpoint(), testItSettings.token());
 
-    public void afterTestWrite(TestResult result) {
+    public void afterTestStop(TestResult result) {
         AllureConfig.setTestItApiClient(testItApiClient);
         AllureConfig.setAllureFolder("target/allure-results");
         AllureConfig.setAllureResultsPattern("target/allure-results/%s");
