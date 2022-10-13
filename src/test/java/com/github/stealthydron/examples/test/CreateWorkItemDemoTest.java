@@ -101,6 +101,6 @@ public class CreateWorkItemDemoTest {
         steps.testStep1().testStep2();
         mainSteps.mainStep1();
         mainSteps.mainStep2();
-        mainSteps.assertThatSomethingFail();
+        mainSteps.assertThatSomethingPass();
     }
 }
