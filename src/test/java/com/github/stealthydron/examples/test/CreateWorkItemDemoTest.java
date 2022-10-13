@@ -1,6 +1,6 @@
 package com.github.stealthydron.examples.test;
 
-import com.github.avpyanov.testit.annotations.AutotestId;
+import com.github.avpyanov.tools.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
 import io.qameta.allure.*;
@@ -17,8 +17,9 @@ public class CreateWorkItemDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Feature")
     @Story("Create Work Item Demo Story")
+    @TmsLink("21")
+    @AutotestId("20")
     @Test(description = "Create Work Item Demo Test Name")
-    @AutotestId("108")
     public void testMethodExample5() {
         String text = getSomething();
         doSomething(text);
@@ -31,8 +32,9 @@ public class CreateWorkItemDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Feature")
     @Story("Create Work Item Demo Story")
+    @TmsLink("23")
+    @AutotestId("22")
     @Test(description = "Create Work Item Demo Test6 Name")
-    @AutotestId("106")
     public void testMethodExample6() {
         String text = getSomething();
         doSomething(text);
@@ -45,8 +47,9 @@ public class CreateWorkItemDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Feature")
     @Story("Create Work Item Demo Story")
+    @TmsLink("27")
+    @AutotestId("26")
     @Test(description = "Create Work Item Demo Test10 Name")
-    @AutotestId("102")
     public void testMethodExample10() {
         String text = getSomething();
         doSomething(text);
@@ -59,8 +62,9 @@ public class CreateWorkItemDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Feature")
     @Story("Create Work Item Demo Story")
+    @TmsLink("17")
+    @AutotestId("16")
     @Test(description = "Create Work Item Demo Test11 Name")
-    @AutotestId("104")
     public void testMethodExample11() {
         String text = getSomething();
         doSomething(text);
@@ -73,8 +77,9 @@ public class CreateWorkItemDemoTest {
 
     @Feature("Create Work Item Demo Feature")
     @Story("Create Work Item Demo Story")
+    @TmsLink("25")
+    @AutotestId("24")
     @Test(description = "Create Work Item Demo Test12 Name")
-    @AutotestId("115")
     public void testMethodExample12() {
         String text = getSomething();
         doSomething(text);
@@ -87,7 +92,8 @@ public class CreateWorkItemDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Feature")
     @TmsLink("202")
-    @AutotestId("201")
+    @TmsLink("19")
+    @AutotestId("18")
     @Test(description = "Create Work Item Demo Test13 Name")
     public void testMethodExample13() {
         String text = getSomething();

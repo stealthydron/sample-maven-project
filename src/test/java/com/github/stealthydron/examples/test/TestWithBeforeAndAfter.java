@@ -1,6 +1,6 @@
 package com.github.stealthydron.examples.test;
 
-import com.github.avpyanov.testit.annotations.AutotestId;
+import com.github.avpyanov.tools.annotations.AutotestId;
 import com.github.stealthydron.example.steps.MainSteps;
 import com.github.stealthydron.examples.samples.TestSteps;
 import io.qameta.allure.*;
@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 
 import static com.github.stealthydron.examples.app.StaticExample.doSomething;
 import static com.github.stealthydron.examples.app.StaticExample.getSomething;
-import static org.testng.Assert.assertEquals;
 
 public class TestWithBeforeAndAfter {
 
@@ -75,15 +74,9 @@ public class TestWithBeforeAndAfter {
     @Step("Before class setup")
     private void beforeClassSetUp() {
         Allure.addAttachment("test", "Before class setup");
-        testStep("test1", "test2");
         System.out.println("Before class setup");
     }
 
-    @Step("Before class setup1")
-    private void testStep(String param1, String param2) {
-        System.out.println(param1 + " " + param2);
-        assertEquals(1, 2);
-    }
 
     @Step("Before method step")
     private void beforeMethodStep() {
