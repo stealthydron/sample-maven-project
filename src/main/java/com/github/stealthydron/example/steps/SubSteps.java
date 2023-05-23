@@ -5,20 +5,20 @@ import io.qameta.allure.Step;
 
 public class SubSteps {
 
-    @Step("-sub step1")
+    @Step("- Дополнительный шаг 1")
     public void subStep1() {
-        System.out.println("- sub step1");
+        System.out.println("- Дополнительный шаг 1");
     }
 
-    @Step("-sub step2")
+    @Step("- Дополнительный шаг 2")
     public void subStep2() {
-        System.out.println("- sub step2");
+        System.out.println("- Дополнительный шаг 2");
         subStep2SubStep();
         Allure.addAttachment("test", "text/html", "test allure attachment");
     }
 
-   @Step("--sub step2 substep")
+   @Step("-- вложенный шаг в 'Дополнительный шаг 2'")
     public void subStep2SubStep(){
-       System.out.println("--sub step2 substep");
+       System.out.println("-- вложенный шаг в 'Дополнительный шаг 2'");
    }
 }

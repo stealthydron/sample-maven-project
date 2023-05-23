@@ -22,8 +22,8 @@
 
     <repositories>
         <repository>
-            <id>local-maven-repo</id>
-            <url>file:///${project.basedir}/local-maven-repo</url>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
         </repository>
     </repositories>
 
@@ -102,9 +102,9 @@
             <version>${apache.commons.lang.version}</version>
         </dependency>
         <dependency>
-            <groupId>ru.russianpost.portal</groupId>
+            <groupId>com.github.avpyanov</groupId>
             <artifactId>testit-allure-tools</artifactId>
-            <version>0.1</version>
+            <version>v0.3.4</version>
         </dependency>
     </dependencies>
 </project>
