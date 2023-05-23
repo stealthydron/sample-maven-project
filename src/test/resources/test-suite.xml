@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Tracking" parallel="classes" thread-count="4">
     <listeners>
-        <listener class-name="com.github.avpyanov.tools.testng.TestItTestngListener"/>
+        <listener class-name="ru.russianpost.portal.tools.testng.TestItTestngListener"/>
     </listeners>
     <test name="test">
         <packages>
