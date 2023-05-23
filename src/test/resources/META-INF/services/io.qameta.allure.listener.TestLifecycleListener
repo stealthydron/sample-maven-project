@@ -1,1 +1,1 @@
-ru.russianpost.portal.tools.allure.AllureTestLifecycleListener
+com.github.avpyanov.tools.allure.AllureTestLifecycleListener
