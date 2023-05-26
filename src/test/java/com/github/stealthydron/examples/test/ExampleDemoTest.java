@@ -15,8 +15,8 @@ public class ExampleDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Epic Feature")
     @Story("Create Work Item Demo Story")
-    @TmsLink("14")
-    @AutotestId("13")
+    @TmsLink("28")
+    @AutotestId("27")
     @Test(description = "Тест должен упасть java.lang.AssertionError, но перед этим сделать аттачмент")
     public void failedTestMethodExample() {
         mainSteps.mainStep1();
@@ -28,9 +28,9 @@ public class ExampleDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Epic Feature")
     @Story("Create Work Item Demo Story")
-    @TmsLink("12")
-    @AutotestId("11")
-    @Test(description = "Тест должен пройти")
+    @TmsLink("26")
+    @AutotestId("25")
+    @Test(description = "Демо. Тест должен пройти")
     public void successfulTestMethodExample() {
         mainSteps.mainStep1();
         mainSteps.mainStep2();

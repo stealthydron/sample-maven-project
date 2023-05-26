@@ -17,8 +17,8 @@ public class ExceptionsDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Epic Feature")
     @Story("Create Work Item Demo Story")
-    @TmsLink("8")
-    @AutotestId("7")
+    @TmsLink("30")
+    @AutotestId("29")
     @Test(description = "Тест должен выбросить java.lang.NullPointerException")
     public void testMethodExample1() {
         AddressDto addressDto = new AddressDto();
@@ -30,8 +30,8 @@ public class ExceptionsDemoTest {
     @Epic("Create Work Item Demo Epic")
     @Feature("Create Work Item Demo Epic Feature")
     @Story("Create Work Item Demo Story")
-    @TmsLink("10")
-    @AutotestId("9")
+    @TmsLink("32")
+    @AutotestId("31")
     @Test(description = "Тест должен упасть java.lang.AssertionError")
     public void testMethodExample2() {
         AddressDto addressDto = new AddressDto();
