@@ -13,14 +13,18 @@ public class ParcelForm {
     }
 
     @Step("Заполнить отправителя")
-    public ParcelForm fillSender() {
-        senderForm.fillForm();
+    public ParcelForm fillSender(String name, String phone) {
+        senderForm.fillForm(name,phone);
         return this;
     }
 
     @Step("Заполнить получателя")
-    public ParcelForm fillRecipient() {
-        recipient.fillForm();
+    public ParcelForm fillRecipient(String name, String phone) {
+        recipient.fillForm(name,phone);
         return this;
+    }
+
+    @Step("Проверка условия '{expectedCondition}'")
+    public void assertThatSomething(String expectedCondition) {
     }
 }

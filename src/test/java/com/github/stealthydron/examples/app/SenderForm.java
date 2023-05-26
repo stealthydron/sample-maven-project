@@ -3,22 +3,21 @@ package com.github.stealthydron.examples.app;
 import io.qameta.allure.Step;
 
 public class SenderForm {
-    
-    public void fillForm(){
-        fillName();
-        fillAddress();
-        fillPhone();
+
+    public void fillForm(String name, String phone){
+        fillName(name);
+        fillPhone(phone);
     }
 
-    @Step("Заполнение телефона отправителя")
-    private void fillPhone() {
+    @Step("Заполнить телефон отправителя")
+    private void fillPhone(String phone) {
     }
 
-    @Step("Заполнение адреса отправителя")
-    private void fillAddress() {
+    @Step("Заполнить адрес отправителя")
+    private void fillAddress(String address) {
     }
 
-    @Step("Заполнение имени отправителя")
-    private void fillName() {
+    @Step("Заполнить ФИО отправителя")
+    private void fillName(String name) {
     }
 }

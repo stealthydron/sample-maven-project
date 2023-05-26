@@ -21,6 +21,7 @@ public class ExampleDemoTest {
     public void failedTestMethodExample() {
         mainSteps.mainStep1();
         mainSteps.mainStep2();
+        mainSteps.mainStep3("Test param");
         mainSteps.assertThatSomethingFail();
     }
 

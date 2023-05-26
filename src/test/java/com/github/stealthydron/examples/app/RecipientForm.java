@@ -4,21 +4,20 @@ import io.qameta.allure.Step;
 
 public class RecipientForm {
     
-    public void fillForm(){
-        fillName();
-        fillAddress();
-        fillPhone();
+    public void fillForm(String name, String phone){
+        fillName(name);
+        fillPhone(phone);
     }
 
-    @Step("Заполнение телефона получателя")
-    private void fillPhone() {
+    @Step("Заполнить телефон получателя")
+    private void fillPhone(String phone) {
     }
 
-    @Step("Заполнение адреса получателя")
-    private void fillAddress() {
+    @Step("Заполнить адрес получателя")
+    private void fillAddress(String address) {
     }
 
-    @Step("Заполнение имени получателя")
-    private void fillName() {
+    @Step("Заполнить ФИО получателя")
+    private void fillName(String name) {
     }
 }
